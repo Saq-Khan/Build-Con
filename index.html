@@ -1,0 +1,922 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildCon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+
+.card-scale:hover{
+    transform: scale(1.03) translateY(-8px);
+    transition: 0.4s ease all;
+    color: white;
+    text-shadow: 1px 1px black;
+    box-shadow: 0 0 8px #FFC107;
+}
+/* .carousel-indicators{
+    background-color: #FFC107;
+    height: 5px;
+    width: 10px;
+} */
+.carousel-indicators .car-ind{
+   background-color: black;
+   border: none;
+   height: 4px;
+   width: 30px;
+   /* border-radius: 5px; */
+   margin-top: 20px;
+}
+.carousel-indicators .car-ind.active{
+   background: #FFC107;
+   border: none;
+   height: 4px;
+   width: 30px;
+   margin-top: 20px;
+   border-radius: 2px;
+}
+.team-img:hover{
+    width: 120px;
+    transition: 0.2s ease all;
+    margin: 0;
+}
+.builds{
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(5, 210px);
+    grid-template-rows: repeat(5, 210px);
+    /* grid-gap: 20px; */
+}
+#b1{
+    grid-column: 1/4;
+    grid-row: 1/4;
+    /* width: 600px; */
+    cursor: pointer;
+}
+#b2{
+    grid-column: 4/5;
+    grid-row: 1/2;
+    /* width: 200px; */
+    cursor: pointer;
+}
+#b3{
+    grid-column: 5/6;
+    grid-row: 1/3;
+    cursor: pointer;
+    /* width: 200px; */
+}
+#b4{
+    grid-column: 2/5;
+    grid-row: 4/6;
+    cursor: pointer;
+    /* width: 400px; */
+}
+/* #b5{
+    grid-column: 4/5;
+    grid-row: 4/6;
+    width: 200px;
+} */
+#b5{
+    grid-column: 5/6;
+    grid-row: 3/4;
+    cursor: pointer;
+    width: 200px;
+}
+#b6{
+    grid-column: 4/5;
+    grid-row: 2/4;
+    cursor: pointer;
+    /* width: 200px; */
+}
+#b7{
+    grid-column: 5/6;
+    grid-row: 4/6;
+    cursor: pointer;
+    /* width: 200px; */
+}
+#b8{
+    grid-column: 1/2;
+    grid-row: 4/6;
+    cursor: pointer;
+    /* width: 200px; */
+}
+.bus{
+    margin:10px;
+    border-radius: 5px;
+    box-shadow: 0 0 4px black;
+}
+.bus:hover{
+    transform: scale(1.03);
+    transition: .4s ease all;
+    box-shadow: 0 0 8px #FFC107;
+}
+/* #more {display: none;} */
+@media only screen and (max-width:992px){
+    .builds{
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(3, 210px);
+    grid-template-rows: repeat(4, 210px);
+    }
+#b1{
+    grid-column: 1/3;
+    grid-row: 1/3;
+    width: 400px;
+    height: 400px;
+    cursor: pointer;
+}
+#b2{
+    grid-column: 3/4;
+    grid-row: 1/2;
+    height: 200px;
+    width: 200px;
+    cursor: pointer;
+}
+#b3{
+    grid-column: 1/2;
+    grid-row: 3/4;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+}
+#b4{
+    grid-column: 2/3;
+    grid-row: 3/4;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+}
+#b5{
+    grid-column: 3/4;
+    grid-row: 4/5;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+}
+#b6{
+    grid-column: 3/4;
+    grid-row: 2/4;
+    cursor: pointer;
+    height: 400px;
+    width: 200px;
+}
+#b7{
+    grid-column: 1/2;
+    grid-row: 4/5;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+}
+#b8{
+    grid-column: 2/3;
+    grid-row: 4/5;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+}
+}
+@media only screen and (max-width:750px){
+    .builds{
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(2, 210px);
+    grid-template-rows: repeat(4, 210px);
+    }
+#b1{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
+#b2{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    height: 200px;
+    width: 200px;
+    cursor: pointer;
+}
+#b3{
+    grid-column: 1/2;
+    grid-row: 2/3;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+}
+#b4{
+    grid-column: 2/3;
+    grid-row: 2/3;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+}
+#b5{
+    grid-column: 1/2;
+    grid-row: 3/4;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+}
+#b6{
+    grid-column: 2/3;
+    grid-row: 3/4;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+}
+#b7{
+    grid-column: 1/2;
+    grid-row: 4/5;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+}
+#b8{
+    grid-column: 2/3;
+    grid-row: 4/5;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+}
+}
+@media only screen and (max-width:420px){
+    .builds{
+    overflow: hidden;
+    display: grid;
+    justify-items: center;
+    /* align-items: center; */
+    grid-template-columns: repeat(2, 210px);
+    grid-template-rows: repeat(8, 210px);
+    }
+#b1{
+    grid-column: 1/3;
+    grid-row: 1/2;
+    width: 300px;
+    height: 200px;
+    cursor: pointer;
+}
+#b2{
+    grid-column: 1/3;
+    grid-row: 2/3;
+    height: 200px;
+    width: 300px;
+    cursor: pointer;
+}
+#b3{
+    grid-column: 1/3;
+    grid-row: 3/4;
+    cursor: pointer;
+    height: 200px;
+    width: 300px;
+}
+#b4{
+    grid-column: 1/3;
+    grid-row: 4/5;
+    cursor: pointer;
+    height: 200px;
+    width: 300px;
+}
+#b5{
+    grid-column: 1/3;
+    grid-row: 5/6;
+    cursor: pointer;
+    height: 200px;
+    width: 300px;
+}
+#b6{
+    grid-column: 1/3;
+    grid-row: 6/7;
+    cursor: pointer;
+    height: 200px;
+    width: 300px;
+}
+#b7{
+    grid-column: 1/3;
+    grid-row: 7/8;
+    cursor: pointer;
+    height: 200px;
+    width: 300px;
+}
+#b8{
+    grid-column: 1/3;
+    grid-row: 8/9;
+    cursor: pointer;
+    height: 200px;
+    width: 300px;
+}
+}
+    </style>
+</head>
+<body>
+    
+<header id="home">
+    <nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+            <div class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+                <div class="container">
+                             <a href="#" class="navbar-brand "><h3 style="font-family: 'Young Serif', serif; font-size: 30px;"><span class="text-warning" >Build</span>Con</h3></a>
+                        <!-- </div> -->
+                        <!-- <div class="col-1"> -->
+                            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav-menu">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="nav-menu">
+                                <ul class="navbar-nav  ms-auto mb-2">
+                                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                                    <li class="nav-item dropdown" ><a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Portfolio</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item nav-link" href="#projects">Projects</a></li>
+                                            <li><a class="dropdown-item nav-link" href="#builds">Builds</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item"><a href="#team" class="nav-link">Team</a></li>
+                                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- CAROUSEL -->
+<section>
+    <div class="container-fluid my-5">
+        <!-- <div class="carousel"> -->
+            <div class="row">
+            <div class="carousel slide" id="abc" data-bs-ride="carousel" data-bs-interval="2000" >
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#abc" data-bs-slide-to="0" class="car-ind active"></li>
+                    <li data-bs-target="#abc" data-bs-slide-to="1" class="car-ind"></li>
+                    <li data-bs-target="#abc" data-bs-slide-to="2" class="car-ind"></li>
+                    <!-- <li data-bs-target="#abc" data-bs-slide-to="3" ></li>
+                    <li data-target="#abc" data-slide-to="4"></li> -->
+                </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img  class="d-block w-100" src="images/home2.jpeg" alt="">
+                            <div class="carousel-caption">
+                                <h4>Slide 1</h4>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, labore? Dolorem, quas?</p>
+                                <button class="btn btn-warning">Learn More</button>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img  class="d-block w-100" src="images/home1.jpg" alt=""> 
+                            <div class="carousel-caption">
+                                <h4>Slide 2</h4>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, labore? Dolorem, quas?</p>
+                                <button class="btn btn-warning">Learn More</button>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img  class="d-block w-100" src="images/home3.jpg" alt=""> <div class="carousel-caption">
+                                <h4>Slide 2.5</h4>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, labore? Dolorem, quas?</p>
+                                <button class="btn btn-warning">Learn More</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <a class="carousel-control-prev" href="#abc" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <!-- <span class="sr-only"></span> -->
+                    </a>
+                    <a class="carousel-control-next" href="#abc" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <!-- <span class="sr-only"></span> -->
+                    </a>
+            </div>
+        <!-- </div> -->
+    </div>
+    </div>
+</section>
+<!-- ABOUT -->
+<section id="about">
+     <div class="container" style="margin-top: 120px;">
+        <div class="row">
+
+            <div class="col-lg-5 col-md-6 text-center"><img src="images/about.jpg" width="330" alt=""></div>
+            <div class="col-lg-7 col-md-6 mt-4 ">
+                <h3 class="text-warning fw-bold display-6">WE PROVIDE THE BEST QUALITY SERVICES EVER</h3>
+                <p class="my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptatem repudiandae voluptate. Provident natus porro, doloremque dicta enim, vel officia iure placeat deleniti iusto vero hic quae non excepturi iste obcaecati voluptas beatae distinctio tempore omnis! Tempora consequuntur repellendus cumque commodi ullam quod soluta suscipit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam totam nostrum inventore amet ut, libero eaque doloribus quaerat? Distinctio, culpa!</p>
+                <a href="#contact"><button class="btn btn-warning">Read More</button></a>
+            </div>
+        </div>
+     </div>
+</section>
+<!-- SERVICES -->
+ <section id="services">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <h2 class="mt-5 text-center">OUR SERVICES</h2>
+            <p class="text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda, et. Odit, consequuntur.</p>
+<!-- Card 1 -->
+
+            <div class="col-md-6 col-lg-4 p-2">
+                <div class="card p-4 bg-dark text-light">
+                    <div class="card-content text-center">
+                        <div class="card-body">
+                            <h3 class="py-1">SERVICES</h3>
+                            <!-- <img src="" alt=""> -->
+                             <img width="64" height="64" src="https://img.icons8.com/external-outline-wichaiwi/64/FFFFFF/external-ability-business-risks-outline-wichaiwi.png" alt="external-ability-business-risks-outline-wichaiwi"/>
+                             <p class="py-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum assumenda ullam ipsam tempore sunt? Perspiciatis natus soluta eligendi dolorum nisi inventore qui? Voluptatum.</p>
+                        </div>
+                        <div class="card-footer"><a href="#" class="card-link">Contact Support for queries</a></div>
+                    </div>
+                </div>
+            </div>
+<!-- Card 2 -->
+
+            <div class="col-md-6 col-lg-4 col-xs-12 p-2">
+                <div class="card p-4 bg-dark text-light">
+                    <div class="card-content text-center">
+                        <div class="card-body ">
+                            <h3 class="py-1">SKILLS</h3>
+                            <!-- <img src="" alt=""> -->
+                            <img width="64" height="64" src="https://img.icons8.com/external-outline-geotatah/64/FFFFFF/external-ability-genius-outline-geotatah.png" alt="external-ability-genius-outline-geotatah"/>
+                            <p class="py-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum assumenda ullam ipsam tempore sunt? Perspiciatis natus soluta eligendi dolorum nisi inventore qui? Voluptatum.</p>
+                        </div>
+                        <div class="card-footer"><a href="#" class="card-link">Contact Support for queries</a></div>
+                    </div>
+                </div>
+            </div>
+<!-- Card 3 -->
+
+            <div class="col-md-6 col-lg-4 col-xs-12 p-2">
+                <div class="card p-4 bg-dark text-light">
+                    <div class="card-content text-center">
+                        <div class="card-body ">
+                            <h3 class="py-1">PROFITABILITY</h3>
+                            <!-- <img src="" alt=""> -->
+                            <img width="64" height="64" src="https://img.icons8.com/ios-glyphs/90/FFFFFF/Profitability.png" alt="Profitability"/>
+                             <p class="py-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum assumenda ullam ipsam tempore sunt? Perspiciatis natus soluta eligendi dolorum nisi inventore qui? Voluptatum.</p>
+                        </div>
+                        <div class="card-footer"><a href="#" class="card-link">Contact Support for queries</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </section>
+<!-- PROJECTS --> 
+<section id="projects">
+    <div class="container text-center mt-5">
+        <div class="row">
+            <h2 class="mt-5 text-center">OUR PROJECTS</h2>
+            <p class="text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda, et. Odit, consequuntur.</p>
+<!-- Card 1 -->
+<!-- <div class="col-12"> -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card mt-sm-2 mt-md-2 card-scale">
+                    <div class="card-content">
+                            <img class="card-img" src="images/project-1.jpg" alt="">
+                            <div class="card-img-overlay align-self-end ">
+                                <h5>High Rise Projects</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, porro.</p>
+                                <button class="btn btn-outline-warning">See for yourself →</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+<!-- Card 2 -->
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card  mt-xs-2 mt-sm-4 mt-md-2 card-scale">
+                    <div class="card-content">
+                        <!-- <div class="card-body"> -->
+                            <img class="card-img" src="images/project-2.jpg" alt="">
+                            <div class="card-img-overlay align-self-end" >
+                                <h5>High Rise Projects</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, porro.</p>
+                                <button class="btn btn-outline-warning">See for yourself →</button>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+<!-- Card 3 -->
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card mt-xs-2 mt-sm-4 mt-md-2 card-scale">
+                    <div class="card-content">
+                        <!-- <div class="card-body"> -->
+                            <img class="card-img" src="images/project-3.jpg" alt="">
+                            <div class="card-img-overlay align-self-end">
+                                <h5>High Rise Projects</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, porro.</p>
+                                <button class="btn btn-outline-warning">See for yourself →</button>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+<!-- Card 4 -->
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card mt-xs-2 mt-sm-4 mt-md-2 card-scale">
+                    <div class="card-content">
+                        <!-- <div class="card-body"> -->
+                            <img class="card-img" src="images/project-1.jpg" alt="">
+                            <div class="card-img-overlay align-self-end">
+                                <h5>High Rise Projects</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, porro.</p>
+                                <button class="btn btn-outline-warning">See for yourself →</button>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
+        </div>
+    </div>
+</section>
+<!-- PROJECT BUILDS -->
+ <section id="builds">
+     <h2 class="mt-5 text-center">BUILDS</h2>
+     <p class="text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda, et. Odit, consequuntur.</p>
+<!-- collage of images using grid -->
+    <div class="container builds justify-content-center">
+        <img src="images/build-1.jpg" alt="" id="b1" class="bus" data-bs-toggle="modal" data-bs-target="#bm1">
+        <img src="images/build-2.jpg" alt="" id="b2" class="bus" data-bs-toggle="modal" data-bs-target="#bm2">
+        <img src="images/build-3.jpg" alt="" id="b3" class="bus" data-bs-toggle="modal" data-bs-target="#bm3">
+        <img src="images/build-4.jpg" alt="" id="b4" class="bus" data-bs-toggle="modal" data-bs-target="#bm4">
+        <img src="images/build-5.webp" alt="" id="b5" class="bus" data-bs-toggle="modal" data-bs-target="#bm5">
+        <!-- <img src="images/build-5.webp" alt="" id="b5"> -->
+        <img src="images/build-6.jpg" alt="" id="b6" class="bus" data-bs-toggle="modal" data-bs-target="#bm6">
+        <img src="images/build-7.jpg" alt="" id="b7" class="bus" data-bs-toggle="modal" data-bs-target="#bm7">
+        <img src="images/build-8.jpg" alt="" id="b8" class="bus" data-bs-toggle="modal" data-bs-target="#bm8">
+    </div>
+ </section>
+
+<!-- TEAM -->
+ <section id="team">
+    <div class="container mt-5 mb-md-3">
+        <div class="row ">
+            <h2 class="mt-5 text-center">OUR TEAM</h2>
+            <p class="text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda, et. Odit, consequuntur.</p>
+        <!-- <div class="col-md-12"> -->
+            <!-- Card 1 -->
+            <div class="col-md-6 col-lg-3 ">
+                <div class="card text-center p-3  team-img1">
+                    <a href="#Joshua"><img src="images/team-1.jpg" class="rounded-circle align-self-center mt-3 team-img" width="100" alt=""></a>
+                    <div class="d-flex justify-content-evenly mt-3">
+                        <a href="#fb J"><img width="25" height="25" src="https://img.icons8.com/ios-filled/50/facebook-new.png" alt="facebook-new"/></a>
+                        <a href="#X J"><img width="25" height="25" src="https://img.icons8.com/ios/50/twitterx--v2.png" alt="twitterx--v2"/></a>
+                        <a href="#yt J"><img width="25" height="25" src="https://img.icons8.com/ios-filled/50/youtube-play.png" alt="youtube-play"/></a>
+                    </div>
+                        <hr>
+                    <div class="card-title">
+                        <h3>Joshua</h3>
+                        <h6>Project Manager</h6>
+                    </div>
+                    <div class="card-text">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem numquam, optio totam omnis voluptatibus ratione officia pariatur quaerat magni rem laborum. Nemo non esse quia.</p>
+                        <a href="#Joshua" class="btn btn-warning">Connect</a>
+                    </div>
+                </div>
+            </div>
+<!-- Card 2 -->
+
+            <div class="col-md-6 col-lg-3 mt-xs-2 mt-sm-2 mt-md-0">
+                <div class="card text-center p-3  team-img1">
+                    <a href="#Diana"><img src="images/team-4.jpg" class="rounded-circle align-self-center mt-3 team-img" width="100" alt=""></a>
+                    <div class="d-flex justify-content-evenly mt-3">
+                        <a href="#fb D"><img width="25" height="25" src="https://img.icons8.com/ios-filled/50/facebook-new.png" alt="facebook-new"/></a>
+                        <a href="#X D"><img width="25" height="25" src="https://img.icons8.com/ios/50/twitterx--v2.png" alt="twitterx--v2"/></a>
+                        <a href="#yt D"><img width="25" height="25" src="https://img.icons8.com/ios-filled/50/youtube-play.png" alt="youtube-play"/></a>
+                    </div>
+                        <hr>
+                    <div class="card-title">
+                        <h3>Diana</h3>
+                        <h6>Project Lead</h6>
+                    </div>
+                    <div class="card-text">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem numquam, optio totam omnis voluptatibus ratione officia pariatur quaerat magni rem laborum. Nemo non esse quia.</p>
+                        <a href="#Diana" class="btn btn-warning">Connect</a>
+                    </div>
+                </div>
+<!-- Card 3 -->
+
+            </div>
+            <div class="col-md-6 col-lg-3 mt-xs-2 mt-sm-2 mt-md-2">
+                <div class="card text-center p-3  team-img1">
+                    <a href="#Alex"><img src="images/team-2.jpg" class="rounded-circle align-self-center mt-3 team-img" width="100" alt=""></a>
+                    <div class="d-flex justify-content-evenly mt-3">
+                        <a href="#fb A"><img width="25" height="25" src="https://img.icons8.com/ios-filled/50/facebook-new.png" alt="facebook-new"/></a>
+                        <a href="#X A"><img width="25" height="25" src="https://img.icons8.com/ios/50/twitterx--v2.png" alt="twitterx--v2"/></a>
+                        <a href="#yt A"><img width="25" height="25" src="https://img.icons8.com/ios-filled/50/youtube-play.png" alt="youtube-play"/></a>
+                    </div>
+                        <hr>
+                    <div class="card-title">
+                        <h3>Alexander</h3>
+                        <h6>Builder</h6>
+                    </div>
+                    <div class="card-text">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem numquam, optio totam omnis voluptatibus ratione officia pariatur quaerat magni rem laborum. Nemo non esse quia.</p>
+                        <a href="#Alex" class="btn btn-warning">Connect</a>
+                    </div>
+                </div>
+            </div>
+<!-- Card 4 -->
+
+            <div class="col-md-6 col-lg-3 mt-xs-2 mt-sm-2 mt-md-2 mb-sm-2">
+                <div class="card text-center p-3  team-img1">
+                    <a href="#Sarah"><img src="images/team-3.jpg" class="rounded-circle align-self-center mt-3 team-img" width="100" alt=""></a>
+                    <div class="d-flex justify-content-evenly mt-3">
+                        <a href="#fb S"><img width="25" height="25" src="https://img.icons8.com/ios-filled/50/facebook-new.png" alt="facebook-new"/></a>
+                        <a href="#X S"><img width="25" height="25" src="https://img.icons8.com/ios/50/twitterx--v2.png" alt="twitterx--v2"/></a>
+                        <a href="#yt S"><img width="25" height="25" src="https://img.icons8.com/ios-filled/50/youtube-play.png" alt="youtube-play"/></a>
+                    </div>
+                        <hr>
+                    <div class="card-title">
+                        <h3>Sarah</h3>
+                        <h6>Inspection Officer</h6>
+                    </div>
+                    <div class="card-text">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem numquam, optio totam omnis voluptatibus ratione officia pariatur quaerat magni rem laborum. Nemo non esse quia.</p>
+                        <a href="#Sarah" class="btn btn-warning">Connect</a>
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
+        </div>
+    </div>
+ </section>
+
+<footer id="contact">
+    <!-- Site Footer Logo -->
+    <div class="container-fluid bg-dark">
+        <div class="row ">
+            <div class="col-md-4"> 
+                <a href="#" class="d-flex justify-content-center text-decoration-none text-white mt-5">
+                    <h3 style="font-family: 'Young Serif', serif; font-size: 30px;"><span class="text-warning" >Build</span>Con</h3>
+                </a>
+            </div>
+            <!-- Functioning site section links -->
+            <div class="col-md-3 text-white pt-5">
+                <h5>Site Links</h5>
+                <ul class="list-unstyled">
+                    <li class=""><a class="text-decoration-none" href="#services">Services</a></li>
+                    <li class=""><a class="text-decoration-none" href="#projects">Portfolio</a></li>
+                    <li class=""><a class="text-decoration-none" href="#team">Team</a></li>
+                    <li class=""><a class="text-decoration-none" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 pt-5">
+                <form action="#" class="text-end">
+                    <textarea name=""  id="" class="form-control" placeholder="Leave a message" rows="2"></textarea>
+                    <button class="btn btn-outline-warning m-1 ">Submit</button>
+                </form>
+            </div>
+        </div>
+        <hr style="color: white;">
+        <!-- About section with a functioning Read more and Read Less Button -->
+        <div class="row ">
+            <div class="text-white pt-1 mb-4">
+                <h5>About</h5>
+                <!-- <p class="d-inline">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi totam dolore pariatur accusamus odit tempora quaerat ut quidem deserunt doloribus, error tempore vel reprehenderit assumenda itaque, eius perspiciatis similique unde excepturi blanditiis! 
+                <a href="#more" data-bs-toggle="collapse" class="d-inline">Read more..</a>
+                <span id="more" class="collapse" class="d-inline"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores delectus temporibus ea cum quam odio sit maiores natus vel sapiente, minima aperiam pariatur. Deserunt corrupti, quas tempore perspiciatis iste cum laboriosam expedita. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis eligendi earum dolore impedit est magni numquam quia, voluptates odio quo ex quaerat commodi autem maxime fugit officia vitae iusto aliquam totam. Sunt. <a href="#more" data-bs-toggle="collapse" >Read Less</a></span></p> -->
+
+                <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scel<span id="dots">...</span><span id="more" class="collapse">erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo earum libero quos pariatur porro iste dolor asperiores odio laboriosam sit? Iure laudantium accusamus deserunt vitae adipisci qui consequatur, placeat eius maiores magni maxime illo. Voluptatem ducimus iure maxime esse ad omnis placeat aperiam impedit obcaecati dolor, dolore quidem, aut ipsam?</span></p>
+
+                <button class="btn btn-sm btn-outline-warning " data-bs-target="#more" data-bs-toggle="collapse" id="myBtn">Read more</button>
+            </div>
+        </div>
+    <div class="row bg-light text-center"><p class=" text-muted mt-3" style="font-size: 12px;">&copy;2024 practice assignment project | Responsive Web Design | All Rights Reserved  </p></div>
+        </div>
+</footer>
+
+<!-- BUILD SECTION MODALS -->
+<section>
+<div class="modal fade" id="bm1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header"><h5 class="modal-title text-center">COZY INDOORS</h5></div>
+            <div class="modal-body"><img style="width: 100%; cursor:zoom-in;" src="images/modal/bm1.jpg" alt="" id="z1"></div>
+            <div class="modal-footer bg-dark text-light"><p>Our designers and buiders are the best Lorem ipsum dolor sit amet.</p><button class="btn btn-outline-warning " data-bs-dismiss="modal">Close</button></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="bm2">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header"><h5 class="modal-title text-center">COZY INDOORS</h5></div>
+            <div class="modal-body"><img style="width: 100%;cursor:zoom-in;" src="images/modal/bm2.jpg" alt="" id="z2" class="zm"></div>
+            <div class="modal-footer bg-dark text-light"><p>Our designers and buiders are the best Lorem ipsum dolor sit amet.</p><button class="btn btn-outline-warning " data-bs-dismiss="modal">Close</button></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="bm3">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header"><h5 class="modal-title text-center">COZY INDOORS</h5></div>
+            <div class="modal-body"><img style="width: 100%;cursor:zoom-in;" src="images/modal/bm3.png" alt="" id="z3" class="zm"></div>
+            <div class="modal-footer bg-dark text-light"><p>Our designers and buiders are the best Lorem ipsum dolor sit amet.</p><button class="btn btn-outline-warning " data-bs-dismiss="modal">Close</button></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="bm4">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header"><h5 class="modal-title text-center">COZY INDOORS</h5></div>
+            <div class="modal-body"><img style="width: 100%;cursor:zoom-in;" src="images/modal/bm4.jpg" alt="" id="z4" class="zm"></div>
+            <div class="modal-footer bg-dark text-light"><p>Our designers and buiders are the best Lorem ipsum dolor sit amet.</p><button class="btn btn-outline-warning " data-bs-dismiss="modal">Close</button></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="bm5">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header"><h5 class="modal-title text-center">COZY INDOORS</h5></div>
+            <div class="modal-body"><img style="width: 100%;cursor:zoom-in;" src="images/modal/bm5.webp" alt="" id="z5"></div>
+            <div class="modal-footer bg-dark text-light"><p>Our designers and buiders are the best Lorem ipsum dolor sit amet.</p><button class="btn btn-outline-warning " data-bs-dismiss="modal">Close</button></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="bm6">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header"><h5 class="modal-title text-center">COZY INDOORS</h5></div>
+            <div class="modal-body"><img style="width: 100%;cursor:zoom-in;" src="images/modal/bm6.jpg" alt="" id="z6"></div>
+            <div class="modal-footer bg-dark text-light"><p>Our designers and buiders are the best Lorem ipsum dolor sit amet.</p><button class="btn btn-outline-warning " data-bs-dismiss="modal">Close</button></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="bm7">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header"><h5 class="modal-title text-center">COZY INDOORS</h5></div>
+            <div class="modal-body"><img style="width: 100%;cursor:zoom-in;" src="images/modal/bm7.jpg" alt="" id="z7"></div>
+            <div class="modal-footer bg-dark text-light"><p>Our designers and buiders are the best Lorem ipsum dolor sit amet.</p><button class="btn btn-outline-warning " data-bs-dismiss="modal">Close</button></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="bm8">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header"><h5 class="modal-title text-center">COZY INDOORS</h5></div>
+            <div class="modal-body"><img style="width: 100%;cursor:zoom-in;" src="images/modal/bm8.jpg" alt="" id="z8"></div>
+            <div class="modal-footer bg-dark text-light"><p>Our designers and buiders are the best Lorem ipsum dolor sit amet.</p><button class="btn btn-outline-warning " data-bs-dismiss="modal">Close</button></div>
+        </div>
+    </div>
+</div>
+</section>
+<script>
+    //    Footer read more and read less button functions
+    document.getElementById('more').addEventListener('show.bs.collapse', function() {
+    document.getElementById('myBtn').textContent = 'Read less';
+    document.getElementById('dots').innerHTML='';
+});
+
+document.getElementById('more').addEventListener('hidden.bs.collapse', function() {
+    document.getElementById('myBtn').textContent = 'Read more';
+    document.getElementById('dots').innerHTML='...';
+});
+
+// Modal Zoom In and Out functions
+document.getElementById('z1').addEventListener('click', function(){
+    const img =  document.getElementById('z1');
+
+    if(img.style.transform === 'scale(1.8)')
+{
+    img.style.cursor = 'zoom-in';
+    img.style.transform = 'scale(1)';
+    img.style.transition = 'transform .3s ease'
+}
+    else
+{
+    img.style.cursor = 'zoom-out';
+    img.style.transition = 'transform .3s ease'
+    img.style.transform = 'scale(1.8)';
+}
+})
+document.getElementById('z2').addEventListener('click', function(){
+    const img2 =  document.getElementById('z2');
+
+    if(img2.style.transform === 'scale(1.8)')
+{
+    img2.style.cursor = 'zoom-in';
+    img2.style.transform = 'scale(1)';
+    img2.style.transition = 'transform .3s ease'
+}
+    else
+{
+    img2.style.cursor = 'zoom-out';
+    img2.style.transition = 'transform .3s ease'
+    img2.style.transform = 'scale(1.8)';
+}
+})
+document.getElementById('z3').addEventListener('click', function(){
+    const img3 =  document.getElementById('z3');
+
+    if(img3.style.transform === 'scale(1.8)')
+{
+    img3.style.cursor = 'zoom-in';
+    img3.style.transform = 'scale(1)';
+    img3.style.transition = 'transform .3s ease'
+}
+    else
+{
+    img3.style.cursor = 'zoom-out';
+    img3.style.transition = 'transform .3s ease'
+    img3.style.transform = 'scale(1.8)';
+}
+})
+document.getElementById('z4').addEventListener('click', function(){
+    const img4 =  document.getElementById('z4');
+
+    if(img4.style.transform === 'scale(1.8)')
+{
+    img4.style.cursor = 'zoom-in';
+    img4.style.transform = 'scale(1)';
+    img4.style.transition = 'transform .3s ease'
+}
+    else
+{
+    img4.style.cursor = 'zoom-out';
+    img4.style.transition = 'transform .3s ease'
+    img4.style.transform = 'scale(1.8)';
+}
+})
+document.getElementById('z5').addEventListener('click', function(){
+    const img5 =  document.getElementById('z5');
+
+    if(img5.style.transform === 'scale(1.8)')
+{
+    img5.style.cursor = 'zoom-in';
+    img5.style.transform = 'scale(1)';
+    img5.style.transition = 'transform .3s ease'
+}
+    else
+{
+    img5.style.cursor = 'zoom-out';
+    img5.style.transition = 'transform .3s ease'
+    img5.style.transform = 'scale(1.8)';
+}
+})
+document.getElementById('z6').addEventListener('click', function(){
+    const img6 =  document.getElementById('z6');
+
+    if(img6.style.transform === 'scale(1.8)')
+{
+    img6.style.cursor = 'zoom-in';
+    img6.style.transform = 'scale(1)';
+    img6.style.transition = 'transform .3s ease'
+}
+    else
+{
+    img6.style.cursor = 'zoom-out';
+    img6.style.transition = 'transform .3s ease'
+    img6.style.transform = 'scale(1.8)';
+}
+})
+document.getElementById('z7').addEventListener('click', function(){
+    const img7 =  document.getElementById('z7');
+
+    if(img7.style.transform === 'scale(1.8)')
+{
+    img7.style.cursor = 'zoom-in';
+    img7.style.transform = 'scale(1)';
+    img7.style.transition = 'transform .3s ease'
+}
+    else
+{
+    img7.style.cursor = 'zoom-out';
+    img7.style.transition = 'transform .3s ease'
+    img7.style.transform = 'scale(1.8)';
+}
+})
+document.getElementById('z8').addEventListener('click', function(){
+    const img8 =  document.getElementById('z8');
+
+    if(img8.style.transform === 'scale(1.8)')
+{
+    img8.style.cursor = 'zoom-in';
+    img8.style.transform = 'scale(1)';
+    img8.style.transition = 'transform .3s ease'
+}
+    else
+{
+    img8.style.cursor = 'zoom-out';
+    img8.style.transition = 'transform .3s ease'
+    img8.style.transform = 'scale(1.8)';
+}
+})
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+</body>
+</html>
